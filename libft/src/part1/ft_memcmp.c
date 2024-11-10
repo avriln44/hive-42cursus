@@ -1,5 +1,5 @@
 #include <stdio.h>
-
+#include <string.h>
 int ft_memcmp(const void *s1, const void *s2, size_t n)
 {
     size_t i;
@@ -18,8 +18,10 @@ int ft_memcmp(const void *s1, const void *s2, size_t n)
 
 int main(void)
 {
-    char s1[20] = "te xinh";
+    char s1[20] = "te a";
     char s2[20] = "te yeu";
+    printf("%d\n", memcmp(s1, s2, 4));
+
     printf("%d\n", ft_memcmp(s1, s2, 4));
     return (0);
 }

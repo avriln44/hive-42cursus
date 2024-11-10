@@ -12,14 +12,15 @@ void *ft_memcpy(void *dest, const void *src, size_t n)
         result[i] = str[i];
         i++;
     }
-    result[i] = '\0';
-    return ((void *)dest);
+    return (dest);
 }
 
+#include <string.h>
 int main(void)
 {
-    char src[50] = "te xinh yeu";
-    char dest[50];
-    printf("%s\n",ft_memcpy(dest, src, 5));
-    return (0);
+    char src[] = "Hello, World!";
+    char dest[20];
+    ft_memcpy(dest, src, strlen(src) + 1);
+    printf("%s\n", dest);
+    return 0;
 }
