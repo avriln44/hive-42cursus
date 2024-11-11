@@ -21,7 +21,7 @@ int main(void)
 {
     char *s = "te xienh";
     // there is an occurence found
-    printf("Found the first occurence: %s\n", ft_strrchr(s, 'e'));
+    printf("Found the last occurence: %s\n", ft_strrchr(s, 'e'));
     // null terminator case
     printf("null terminator case: %s\n", ft_strrchr(s, '\0'));
     // there is no occurrence found

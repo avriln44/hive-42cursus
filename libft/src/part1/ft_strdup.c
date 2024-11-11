@@ -11,7 +11,7 @@ char *ft_strdup(const char *s)
     while (src[i] != '\0')
         i++;
     
-    str_dup = (unsigned char *)malloc(i *sizeof(char));
+    str_dup = (unsigned char *)malloc((i + 1) *sizeof(char));
     if (str_dup == NULL)
         return NULL;
     

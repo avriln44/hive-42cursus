@@ -11,7 +11,7 @@ int ft_strlen(char* str)
     }
     return (i);
 }
-int is_in_str(char *str, char c)
+static int is_in_str(char *str, char c)
 {
     int i;
     i = 0;
