@@ -1,50 +1,36 @@
 # Compiler and flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror
+CFLAGS = -Wall -Wextra -Werror -I. -Iinclude
 
 # Directories
-SRC_DIR1 = src/part1
-SRC_DIR2 = src/part2
+SRC_DIR = src
 OBJ_DIR = obj
-BIN_DIR = bin
+INCLUDE_DIR = include
 
-# Source files
-SRC1 = $(wildcard $(SRC_DIR1)/*.c)
-SRC2 = $(wildcard $(SRC_DIR2)/*.c)
-SRC = $(SRC1) $(SRC2)
-
-# Object files
-OBJ = $(patsubst %.c, $(OBJ_DIR)/%.o, $(notdir $(SRC)))
-
-# Target executable
-TARGET = $(BIN_DIR)/program
+# Files and targets
+NAME = libft.a
+SRC = $(wildcard $(SRC_DIR)/*.c)
+OBJ = $(SRC:$(SRC_DIR)/%.c=$(OBJ_DIR)/%.o)
 
 # Rules
-all: $(TARGET)
+all: $(NAME)
 
-$(TARGET): $(OBJ)
-	@mkdir -p $(BIN_DIR)
-	$(CC) $(CFLAGS) -o $@ $^
+$(NAME): $(OBJ)
+	ar rcs $(NAME) $(OBJ)
 
-$(OBJ_DIR)/%.o: $(SRC_DIR1)/%.c
+$(OBJ_DIR)/%.o: $(SRC_DIR)/%.c
 	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
-
-$(OBJ_DIR)/%.o: $(SRC_DIR2)/%.c
-	@mkdir -p $(OBJ_DIR)
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(INCLUDE_DIR) -c $< -o $@
 
 clean:
 	rm -rf $(OBJ_DIR)
 
 fclean: clean
-	rm -rf $(BIN_DIR)
+	rm -f $(NAME)
 
 re: fclean all
 
-debug:
-	@echo "SRC_DIR1: $(SRC_DIR1)"
-	@echo "SRC_DIR2: $(SRC_DIR2)"
-	@echo "SRC: $(SRC)"
+bonus:
+	# Add bonus file handling if needed
 
-.PHONY: all clean fclean re debug
+.PHONY: all clean fclean re bonus
