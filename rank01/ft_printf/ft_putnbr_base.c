@@ -6,13 +6,14 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 19:42:46 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/12/12 16:17:42 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/12/12 20:00:23 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static char	*ft_putnbr_base(int nbr, char *base)
+#include <stdio.h>
+char	*ft_putnbr_base(int nbr, char *base)
 {
 	int			base_len;
 	int			i;
@@ -29,20 +30,20 @@ static char	*ft_putnbr_base(int nbr, char *base)
 	i = 0;
 	if (num < 0)
 	{
-		word[i] = 0;
+		word[i] = '-';
 		num = -num;
 	}
 	if (num >= base_len)
 		ft_putnbr_base(num / base_len, base);
+
 	while (word[i] != '\0')
 	{
 		word[i]= base[num % base_len];
-		printf("%s", word);
 		i++;
 	}
+	printf("%s\n", word);
 	return (word);
 }
-
 
 // int	put_number(int num, int c)
 // {

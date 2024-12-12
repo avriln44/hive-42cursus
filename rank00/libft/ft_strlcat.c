@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:40:13 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 17:26:46 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:31:50 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,22 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
 	size_t	i;
 	size_t	j;
+	size_t	dst_len;
+	size_t	src_len;
 
-	i = 0;
+	if ((dst == NULL || src == NULL) && size == 0)
+		return (0);
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (size <= dst_len)
+		return (src_len + size);
+	i = dst_len;
 	j = 0;
-	while (dst[i] != '\0')
-		i++;
-	while (j < size - i - 1 && src[j] != '\0')
+	while (j < size - dst_len - 1 && src[j] != '\0')
 	{
-		dst[j + i] = src[j];
+		dst[i + j] = src[j];
 		j++;
 	}
 	dst[i + j] = '\0';
-	return (i + j);
+	return (dst_len + src_len);
 }
-// #include <stdio.h>
-// #include <string.h>
-// #define DEST_SIZE 20
-// int main(void)
-// {
-//     char dest[DEST_SIZE] = "Hello, ";
-//     const char *src = "World!";
-//     size_t result;
-
-//     printf("Before strlcat:\n");
-//     printf("dest = \"%s\", length = %zu\n", dest, strlen(dest));
-//     result = ft_strlcat(dest, src, DEST_SIZE);
-//     printf("\nAfter strlcat:\n");
-//     printf("dest = \"%s\", length = %zu\n", dest, strlen(dest));
-//     printf("Value returned by strlcat: %zu\n", result);
-
-//     if (result >= DEST_SIZE) {
-//         printf("String truncation occurred.\n");
-//     }
-//     return 0;
-// }

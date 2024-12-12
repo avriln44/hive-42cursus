@@ -6,11 +6,9 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:28:41 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 17:25:33 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:23:52 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isprint(int c)
 {
@@ -18,10 +16,3 @@ int	ft_isprint(int c)
 		return (1);
 	return (0);
 }
-
-// int	main(void)
-// {
-// 	int c = 127;
-// 	printf("%d", ft_isprint(c));
-// 	return (0);
-// }

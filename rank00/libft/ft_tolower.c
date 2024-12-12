@@ -6,23 +6,13 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:35:58 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 18:12:22 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:30:52 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int	ft_tolower(int c)
 {
 	if (65 <= c && c <= 90)
-	{
 		return (c + 32);
-	}
 	return (c);
 }
-// #include <stdio.h>
-
-// int main(void)
-// {
-//     int c = 'N';
-//     printf("%c\n",ft_tolower(c));
-//     return (0);
-// }

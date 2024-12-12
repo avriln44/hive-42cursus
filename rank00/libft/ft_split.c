@@ -6,13 +6,13 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:21:49 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 17:26:27 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:28:00 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	count_words(const char *s, char c)
+static int	count_words(const char *s, char delimiter)
 {
 	int	count;
 	int	in_word;
@@ -21,12 +21,12 @@ int	count_words(const char *s, char c)
 	in_word = 0;
 	while (*s)
 	{
-		if (*s != c && in_word == 0)
+		if (*s != delimiter && in_word == 0)
 		{
 			in_word = 1;
 			count++;
 		}
-		else if (*s == c)
+		else if (*s == delimiter)
 		{
 			in_word = 0;
 		}
@@ -35,77 +35,55 @@ int	count_words(const char *s, char c)
 	return (count);
 }
 
-char	*ft_substr(const char *s, int start, int len)
+static void	free_result(char **result, int count)
 {
-	char	*substr;
-	int		i;
-
-	substr = (char *)malloc((len + 1) * sizeof(char));
-	i = 0;
-	if (!substr)
-		return (NULL);
-	while (i < len)
+	while (count >= 0)
 	{
-		substr[i] = s[start + i];
-		i++;
+		free(result[count]);
+		count--;
 	}
-	substr[i] = '\0';
-	return (substr);
+	free(result);
 }
 
-void	free_split(char **result, int count)
+static int	populate_words(char **result, const char *s, char delimiter)
 {
-	while (count--)
-		free(result[count]);
-	free(result);
+	int			word_index;
+	const char	*start;
+
+	word_index = 0;
+	while (*s)
+	{
+		while (*s == delimiter)
+			s++;
+		if (*s)
+		{
+			start = s;
+			while (*s && *s != delimiter)
+				s++;
+			result[word_index] = ft_substr(start, 0, s - start);
+			if (!result[word_index++])
+			{
+				free_result(result, word_index - 1);
+				return (0);
+			}
+		}
+	}
+	result[word_index] = NULL;
+	return (1);
 }
 
 char	**ft_split(char const *s, char c)
 {
 	char	**result;
-	int		start;
-	int		end;
-	int		i;
+	int		word_count;
 
-	i = 0;
-	start = 0;
-	end = 0;
-	if (!s || !(result = malloc((count_words(s, c) + 1) * sizeof(char *))))
+	if (!s)
 		return (NULL);
-	while (s[end])
-	{
-		if (s[end] != c)
-		{
-			start = end;
-			while (s[end] && s[end] != c)
-				end++;
-			if (!(result[i++] = ft_substr(s, start, end - start)))
-				return (free_split(result, i - 1), NULL);
-		}
-		else
-		{
-			end++;
-		}
-	}
-	result[i] = NULL;
+	word_count = count_words(s, c);
+	result = malloc((word_count + 1) * sizeof(char *));
+	if (!result)
+		return (NULL);
+	if (!populate_words(result, s, c))
+		return (NULL);
 	return (result);
 }
-
-// #include <stdio.h>
-
-// int main(void) {
-//     char *s = "0hello000te0xinh0";
-//     char c = '0';
-//     char **split = ft_split(s, c);
-//     int i = 0;
-
-//     if (!split)
-//         return 1;
-//     while (split[i]) {
-//         printf("Substring %d: %s\n", i, split[i]);
-//         free(split[i]);
-//         i++;
-//     }
-//     free(split);
-//     return 0;
-// }

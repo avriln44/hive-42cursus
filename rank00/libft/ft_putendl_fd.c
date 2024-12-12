@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:17:56 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 17:26:09 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:27:09 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_putendl_fd(char *s, int fd)
 {
 	int	i;
 
+	if (s == NULL)
+		return ;
 	i = 0;
 	while (s[i] != '\0')
 	{
@@ -24,12 +26,3 @@ void	ft_putendl_fd(char *s, int fd)
 	}
 	write(fd, "\n", 1);
 }
-// #include <unistd.h>
-
-// int main(void)
-// {
-// 	char *s= "te xinh ieu";
-// 	int fd = 1;
-// 	ft_putendl_fd(s, fd);
-// 	return (0);
-// }

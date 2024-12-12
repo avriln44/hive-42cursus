@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:12:16 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 17:25:57 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:26:27 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,16 +18,15 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	unsigned char	*str;
 	unsigned char	*move;
 
+	if (n == 0 || (dest == NULL && src == NULL))
+		return (dest);
 	str = (unsigned char *)src;
 	move = (unsigned char *)dest;
-	i = 0;
+	i = -1;
 	if (move < str)
 	{
-		while (i < n)
-		{
+		while (++i < n)
 			move[i] = str[i];
-			i++;
-		}
 	}
 	else
 	{
@@ -39,14 +38,3 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 	}
 	return (dest);
 }
-// #include <stdio.h>
-// #include <string.h>
-
-// int main(void)
-// {
-// 	char src[] = "ABCDEFGHI";
-// 	char test_src[] = "ABCDEFGHI";
-// 	printf("reproduced function result: %p\n",ft_memmove(src + 2, src, 5));
-// 	printf("built-in function result: %p\n",memmove(test_src + 2, test_src, 5));
-// 	return (0);
-// }

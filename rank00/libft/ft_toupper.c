@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 13:36:46 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 15:59:52 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:31:04 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,3 @@ int	ft_toupper(int c)
 		return (c - 32);
 	return (c);
 }
-// #include <stdio.h>
-
-// int main(void)
-// {
-//     int c = 'n';
-//     printf("%c\n",ft_toupper(c));
-//     return (0);
-// }

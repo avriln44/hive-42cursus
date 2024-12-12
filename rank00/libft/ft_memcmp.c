@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:33:34 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 17:25:45 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:26:03 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,3 @@ int	ft_memcmp(const void *s1, const void *s2, size_t n)
 	}
 	return (0);
 }
-// #include <stdio.h>
-// #include <string.h>
-// int main(void)
-// {
-// 	char s1[20] = "te a";
-// 	char s2[20] = "te yeu";
-// 	printf("%d\n", memcmp(s1, s2, 4));
-
-// 	printf("%d\n", ft_memcmp(s1, s2, 4));
-// 	return (0);
-// }

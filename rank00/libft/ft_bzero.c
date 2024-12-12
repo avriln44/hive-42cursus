@@ -25,24 +25,3 @@ void	ft_bzero(void *s, size_t n)
 		i++;
 	}
 }
-
-int	main(void)
-{
-	char	s[30] = "Hello world te xinh";
-	int	i;
-
-	ft_bzero(s, 10);
-	i = 0;
-	while (i < 30)
-	{
-		if (s[i] == '\0')
-		{
-			printf("0");
-		}
-		else
-			printf("%c", s[i]);
-		i++;
-	}
-	printf("\n");
-	return (0);
-}

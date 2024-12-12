@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:31:16 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 17:25:41 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:25:50 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,11 +27,3 @@ void	*ft_memchr(const void *s, int c, size_t n)
 	}
 	return (NULL);
 }
-// #include <stdio.h>
-
-// int main(void)
-// {
-// 	char	s[20] = "texinh";
-// 	printf("%p\n", ft_memchr(s, 'x', 20));
-// 	return (0);
-// }

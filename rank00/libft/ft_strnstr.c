@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:47:59 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 18:10:11 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:30:07 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 
 	i = 0;
 	j = 0;
+	if (big == NULL && len == 0)
+		return (NULL);
 	if (little[0] == '\0')
 		return ((char *)big);
 	while (big[i] != '\0' && i < len)
@@ -31,24 +33,9 @@ char	*ft_strnstr(const char *big, const char *little, size_t len)
 		}
 		if (little[j] == '\0')
 		{
-			return ((char *)little);
+			return ((char *)&big[i]);
 		}
 		i++;
 	}
 	return (NULL);
 }
-// #include <stdio.h>
-// #include <string.h>
-
-// int main(void)
-// {
-//     const char big[] = "te xinh yeu";
-//     const char little[] = "yeu";
-//     const char *result = ft_strnstr(big, little, 15);
-
-//     if (result)
-//         printf("%s\n", result);
-//     else
-//         printf("Error!\n");
-//     return (0);
-// }

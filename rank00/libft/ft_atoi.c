@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:24:25 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 17:25:05 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/24 14:56:33 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int	ft_atoi(const char *nptr)
 {
-	int	i;
-	int sign;
-	int result;
+	long	i;
+	int		sign;
+	long	result;
 
 	i = 0;
 	sign = 1;
@@ -32,16 +32,11 @@ int	ft_atoi(const char *nptr)
 	while ('0' <= nptr[i] && nptr[i] <= '9')
 	{
 		result = result * 10 + (nptr[i] - '0');
+		if (sign * result > INT_MAX)
+			return (-1);
+		if (sign * result < INT_MIN)
+			return (0);
 		i++;
 	}
-	return (sign * result);
+	return ((int)sign * result);
 }
-
-// int main(void)
-// {
-//     char nptr1[] = "---1234";
-//     // char nptr2[] = "   -123";
-//     // char nptr3[] = "987 with text";
-//     // char nptr4[] = "text before 123";
-//     printf("%d\n",ft_atoi(nptr1));
-// }

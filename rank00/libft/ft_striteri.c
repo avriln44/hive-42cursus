@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:34:41 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 17:26:38 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:28:34 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
 	unsigned int	i;
 
+	if (s == NULL || !f)
+		return ;
 	i = 0;
 	while (s[i] != '\0')
 	{
@@ -23,18 +25,3 @@ void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 		i++;
 	}
 }
-// #include <stdio.h>
-
-// void even_to_uppercase(unsigned int i, char *c)
-//     {
-//         if (i % 2 == 0)
-//             *c = *c - 32;
-//     }
-
-// int main(void)
-// {
-//     char str[] = "hello";
-//     ft_striteri(str, even_to_uppercase);
-//     printf("%s\n", str);
-//     return (0);
-// }

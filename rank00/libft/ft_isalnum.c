@@ -6,25 +6,14 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:25:03 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/13 17:25:18 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/11/23 15:20:01 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_isalnum(int c)
 {
 	if ((65 <= c && c <= 90) || (97 <= c && c <= 122)
-		|| (('0' <= c && c <= '9')))
+		|| (48 <= c && c <= 57))
 		return (1);
 	return (0);
 }
-
-// #include <stdio.h>
-
-// int	main(void)
-// {
-// 	char c = ';';
-// 	printf("%d\n", ft_isalnum(c));
-// 	return (0);
-// }
