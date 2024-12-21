@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 18:21:40 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/12/10 21:40:22 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/12/21 16:23:20 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,59 +16,41 @@ int ft_printf(const char *s, ...)
 {
     va_list ap;
     int     i;
-    int     count;
-    int     num;
-    int     final_count;
-    void    *str;
+	char	*word;
+    char    buffer[1024];
 
     va_start(ap, s);
-    count = 0;
-    final_count = 0;
+	buffer[0] = '\0';
     i = 0;
     while (s[i] != '\0')
     {
-        if (s[i] == '%')
+        if (s[i] == '%' && s[i + 1] != '\0')
         {
-            if (s[i + 1] == 'c')
-            {   
-                count = ft_putchar(va_arg(ap, int));
-                printf("\ncount for char: %d\n", count);
-                i += 2;
-            }
-            else if (s[i + 1] == 'd' || s[i + 1] == 'i' || s[i + 1] == 'x' || s[i + 1] == 'X')
-            {
-                count = put_number((int)va_arg(ap, int), s[i + 1]);
-                printf("\ncount for numbers: %d\n", count);
-                i += 2;
-            }
-            else if (s[i + 1] == 's')
-            {
-                count = ft_putstr((char *)va_arg(ap, char *));
-                printf("\ncount for string: %d\n", count);
-                i += 2;
-            }
+			word = format_check(s[i + 1], va_arg(ap, void *));
+			ft_strlcat(buffer, word, sizeof(buffer));
+			free(word);
+			i += 2;
         }
         else
         {
-            count = ft_putchar(s[i]);
+            word = ft_putchar(s[i]);
+			ft_strlcat(buffer, word, sizeof(buffer));
             i++;
         }
-        if (count == -1)
-            return (-1);
-        else
-            final_count += count;
     }
     va_end(ap);
-    return (final_count);
+	write(1, buffer, ft_strlen(buffer));
+    return (ft_strlen(buffer));
 }
 #include <stdio.h>
 int main()
 {
-    int var = 42;
-    int *ptr = &var;
-    printf("%d\n", printf("%s\n%c\n%xee", "te xinh", 'c', var));
+    char *string = "te xinh";
+	char c = 'c';
+	int num = 255;
+    printf("\n%d\n", printf("%s\n%c\n%p\n%c\n%d ee%%", string, c, &num, num, num));
     write(1, "\n", 1);
-    printf("%d\n", ft_printf("%s\n%c\n%xee", "te xinh", 'c', var));
+    printf("\n%d\n", ft_printf("%s\n%c\n%p\n%c\n%d ee%%", string, c, &num, num, num));
     write(1, "\n", 1);
     return (0);
 }
