@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 19:41:53 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/12/12 16:13:07 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/12/21 16:41:25 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static	int	num_len(long n, char *base)
 	}
 	return (len);
 }
+
 char	*ft_itoa_base(unsigned long long n, char *base)
 {
 	int					len;

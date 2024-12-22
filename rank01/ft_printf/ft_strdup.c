@@ -6,19 +6,17 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 20:15:11 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/12/09 20:16:29 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/12/22 14:29:26 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char	*ft_strdup(const char *s)
+char	*ft_strdup(char *src)
 {
 	int		i;
-	char	*src;
 	char	*str_dup;
 
-	src = (char *)s;
 	i = 0;
 	while (src[i] != '\0')
 		i++;
