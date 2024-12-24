@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 16:19:35 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/12/24 15:13:37 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2024/12/24 19:24:40 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@ char	*format_check(char specifier, va_list ap)
 {
 	char	*word;
 
+	word = NULL;
 	if (specifier == 'c')
 		word = ft_putchar(va_arg(ap, int));
 	else if (specifier == 's')
@@ -25,11 +26,11 @@ char	*format_check(char specifier, va_list ap)
 	else if (specifier == 'u')
 		word = ft_itoa_base((unsigned int)va_arg(ap, int), "0123456789");
 	else if (specifier == 'x')
-		word = ft_itoa_base(va_arg(ap,unsigned long long), "0123456789abcdef");
+		word = ft_itoa_base(va_arg(ap,unsigned), "0123456789abcdef");
 	else if (specifier == 'X')
-		word = ft_itoa_base(va_arg(ap,unsigned long long), "0123456789ABCDEF");
+		word = ft_itoa_base(va_arg(ap,unsigned), "0123456789ABCDEF");
 	else if (specifier == 'p')
-		word = ft_putptr((void *)va_arg(ap, void *), "0123456789abcdef");
+		word = ft_putptr((uintptr_t)va_arg(ap, void *), "0123456789abcdef");
 	else if (specifier == '%')
 		word = ft_putchar((int)'%');
 	else
