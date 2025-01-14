@@ -1,25 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 19:42:55 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/12/26 12:10:38 by thi-mngu         ###   ########.fr       */
+/*   Created: 2024/12/24 15:25:00 by thi-mngu          #+#    #+#             */
+/*   Updated: 2024/12/26 11:41:30 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_putstr(char *s)
+#include <stdio.h>
+#include <limits.h>
+int main(void)
 {
-	int	count;
-
-	if (s == NULL)
-		return (write(1, "(null)", 6));
-	count = write(1, s, ft_strlen(s));
-	if (count == -1)
-		return (-1);
-	return (count);
+	char *s2 = "te xinh";
+	printf("\n%d ", printf(" %d ", -15));
+	printf("\n");
+	printf("\n%d ", ft_printf(" %d ", -15));
+	return 0;
 }

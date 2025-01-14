@@ -1,28 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 19:41:00 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/12/26 12:07:07 by thi-mngu         ###   ########.fr       */
+/*   Created: 2024/12/26 17:08:39 by thi-mngu          #+#    #+#             */
+/*   Updated: 2025/01/13 20:19:38 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 # include <stdlib.h>
-# include <stddef.h>
+# include <stdio.h>
 # include <unistd.h>
-# include <stdarg.h>
-# include <stdint.h>
+# include <fcntl.h>
+#ifndef BUFFER_SIZE
+# define BUFFER_SIZE 10
+#endif
 
-int	ft_printf(const char *s, ...);
-int	ft_strlen(char *str);
-int	format_check(char specifier, va_list ap);
-int	ft_putchar(int c);
-int	ft_putstr(char *s);
-int	ft_putnbr_base(long long num, char *base);
-int	ft_putptr(unsigned long long ptr, char *base);
+char	*get_next_line(int fd);
+char	*ft_strdup(char *src);
+char	*ft_strjoin(char *s1, char *s2);
+char	*ft_substr(char *s, int start, int end);
+char	*ft_free(char **buffer);
+int		ft_strlen(char *str);
+int		ft_strchr(char *str, int c);
 #endif

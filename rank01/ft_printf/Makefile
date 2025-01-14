@@ -3,16 +3,13 @@ NAME := libftprintf.a
 CC := cc
 CFLAGS := -Wall -Wextra -Werror
 
-SOURCES :=     format_check.c  \
-				ft_itoa_base.c \
-				ft_printf.c    \
-				ft_putchar.c   \
-				ft_putptr.c    \
-				ft_putstr.c    \
-				ft_strdup.c    \
-				ft_strjoin.c   \
-				ft_strlcat.c   \
-				ft_strlen.c    \
+SOURCES :=     format_check.c    \
+				ft_printf.c      \
+				ft_putchar.c     \
+				ft_putptr.c      \
+				ft_putstr.c      \
+				ft_strlen.c    	 \
+				ft_putnbr_base.c \
 
 
 OBJECTS    :=    $(SOURCES:.c=.o)

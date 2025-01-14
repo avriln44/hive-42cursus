@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putstr.c                                        :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/09 19:42:55 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/12/26 12:10:38 by thi-mngu         ###   ########.fr       */
+/*   Created: 2024/12/26 17:08:39 by thi-mngu          #+#    #+#             */
+/*   Updated: 2025/01/12 17:36:18 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef GET_NEXT_LINE_H
+# define GET_NEXT_LINE_H
 
-int	ft_putstr(char *s)
-{
-	int	count;
+# include <unistd.h>
+# include <stdlib.h>
+# include <stdio.h>
+# include <fcntl.h>
 
-	if (s == NULL)
-		return (write(1, "(null)", 6));
-	count = write(1, s, ft_strlen(s));
-	if (count == -1)
-		return (-1);
-	return (count);
-}
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 42
+# endif
+
+char	*get_next_line(int fd);
+
+#endif
