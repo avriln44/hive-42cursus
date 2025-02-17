@@ -6,14 +6,12 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 19:41:00 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/12/26 12:07:07 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/01/22 17:56:53 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
-# include <stdlib.h>
-# include <stddef.h>
 # include <unistd.h>
 # include <stdarg.h>
 # include <stdint.h>

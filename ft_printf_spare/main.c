@@ -1,31 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 18:28:18 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/01/19 19:11:47 by thi-mngu         ###   ########.fr       */
+/*   Created: 2024/12/24 15:25:00 by thi-mngu          #+#    #+#             */
+/*   Updated: 2024/12/24 19:50:05 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
-
-int	ft_putptr(unsigned long long ptr, char *base)
+#include <stdio.h>
+#include <limits.h>
+int main(void)
 {
-	int	count;
-	int	ptr_count;
-
-	if (ptr == 0)
-		ptr_count = write(1, "(nil)", 5);
-	else
-	{
-		count = write(1, "0x", 2);
-		ptr_count = ft_putnbr_base(ptr, base);
-		ptr_count += count;
-	}
-	if (ptr_count < 2)
-		return (-1);
-	return (ptr_count);
+	ft_printf("%d", ft_printf("%c%c%c*", 120, '1', '3'));
+	printf("%d", printf("%c%c%c*", 120, '1', '3'));
+	//printf("\n %d", printf(" %c %c %c ", '0', 0, '1'));
+	return 0;
 }

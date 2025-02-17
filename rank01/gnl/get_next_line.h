@@ -17,13 +17,13 @@
 # include <unistd.h>
 # include <fcntl.h>
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
+#  define BUFFER_SIZE 1
 # endif
 
 char	*get_next_line(int fd);
 char	*ft_strdup(char *src);
 char	*ft_strjoin(char *s1, char *s2);
 void	*ft_memcpy(void *dest, const char *src, size_t len);
-int		ft_strlen(char *str);
+int	ft_strlen(char *str);
 char	*ft_strchr(char *str, int c);
 #endif

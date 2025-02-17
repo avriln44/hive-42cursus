@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 18:28:18 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/01/19 19:11:47 by thi-mngu         ###   ########.fr       */
+/*   Created: 2024/12/12 16:04:37 by thi-mngu          #+#    #+#             */
+/*   Updated: 2024/12/21 17:12:42 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putptr(unsigned long long ptr, char *base)
+char	*ft_strjoin(char *s1, char *s2)
 {
-	int	count;
-	int	ptr_count;
+	int		i;
+	int		len;
+	char	*joined;
 
-	if (ptr == 0)
-		ptr_count = write(1, "(nil)", 5);
-	else
+	if (s1 == NULL || s2 == NULL)
+		return (NULL);
+	len = ft_strlen(s1) + ft_strlen(s2);
+	i = 0;
+	joined = (char *)malloc((len + 1) * sizeof(char));
+	if (joined == NULL)
+		return (NULL);
+	while (s1[i] != '\0')
 	{
-		count = write(1, "0x", 2);
-		ptr_count = ft_putnbr_base(ptr, base);
-		ptr_count += count;
+		joined[i] = s1[i];
+		i++;
 	}
-	if (ptr_count < 2)
-		return (-1);
-	return (ptr_count);
+	while (*s2 != '\0')
+		joined[i++] = *s2++;
+	joined[i] = '\0';
+	return (joined);
 }

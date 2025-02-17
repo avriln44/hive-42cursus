@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line.h                                    :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/26 17:08:39 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/01/20 17:25:42 by thi-mngu         ###   ########.fr       */
+/*   Created: 2024/12/09 19:41:00 by thi-mngu          #+#    #+#             */
+/*   Updated: 2024/12/24 18:18:01 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef GET_NEXT_LINE_H
-# define GET_NEXT_LINE_H
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 # include <stdlib.h>
-# include <stdio.h>
+# include <stddef.h>
 # include <unistd.h>
-# include <fcntl.h>
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE 10
-# endif
+# include <stdarg.h>
+# include <stdint.h>
 
-char	*get_next_line(int fd);
-char	*ft_strdup(char *src);
+int     ft_printf(const char *s, ...);
+int     ft_strlen(char *str);
+char	*format_check(char specifier, va_list ap);
+char    *ft_putchar(int c);
+char    *ft_putstr(char *s);
+char    *ft_putptr(uintptr_t ptr, char *base);
+char    *ft_itoa_base(long long n, char *base);
+char    *ft_strdup(char *src);
 char	*ft_strjoin(char *s1, char *s2);
-void	*ft_memcpy(void *dest, const char *src, size_t len);
-int		ft_strlen(char *str);
-char	*ft_strchr(char *str, int c);
+size_t	ft_strlcat(char *dst, char *src, size_t size);
 #endif

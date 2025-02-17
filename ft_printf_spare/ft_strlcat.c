@@ -1,31 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putptr.c                                        :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/12/11 18:28:18 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/01/19 19:11:47 by thi-mngu         ###   ########.fr       */
+/*   Created: 2024/11/13 12:40:13 by thi-mngu          #+#    #+#             */
+/*   Updated: 2024/12/22 15:29:44 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putptr(unsigned long long ptr, char *base)
+size_t	ft_strlcat(char *dst, char *src, size_t size)
 {
-	int	count;
-	int	ptr_count;
+	size_t	i;
+	size_t	j;
+	size_t	dst_len;
+	size_t	src_len;
 
-	if (ptr == 0)
-		ptr_count = write(1, "(nil)", 5);
-	else
+	if ((dst == NULL || src == NULL) && size == 0)
+		return (0);
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	if (size <= dst_len)
+		return (src_len + size);
+	i = dst_len;
+	j = 0;
+	while (j < size - dst_len - 1 && src[j] != '\0')
 	{
-		count = write(1, "0x", 2);
-		ptr_count = ft_putnbr_base(ptr, base);
-		ptr_count += count;
+		dst[i + j] = src[j];
+		j++;
 	}
-	if (ptr_count < 2)
-		return (-1);
-	return (ptr_count);
+	dst[i + j] = '\0';
+	return (dst_len + src_len);
 }

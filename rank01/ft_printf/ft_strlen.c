@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/09 19:42:15 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/12/21 16:49:57 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/01/16 19:26:27 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,8 @@ int	ft_strlen(char *str)
 {
 	int	i;
 
+	if (!str)
+		return (0);
 	i = 0;
 	while (str[i] != '\0')
 	{
