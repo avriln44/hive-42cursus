@@ -3,15 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   is_int.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhnhat <minhnhat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:24:25 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/18 21:51:33 by minhnhat         ###   ########.fr       */
+/*   Updated: 2025/02/22 15:45:12 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
-#include <limits.h>
+#include "push_swap.h"
+
 int is_int(char *str)
 {
 	long i;
@@ -38,9 +39,9 @@ int is_int(char *str)
 		return (0);
 	return (1);
 }
-int main()
-{
-	char *str = "-14";
-	printf("%d\n", is_int(str));
-	return (0);
-}
+// int main()
+// {
+// 	char *str = "-1443627638";
+// 	printf("%d\n", is_int(str));
+// 	return (0);
+// }

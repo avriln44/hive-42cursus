@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strncmp.c                                       :+:      :+:    :+:   */
+/*   is_duplicate.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/13 12:46:52 by thi-mngu          #+#    #+#             */
-/*   Updated: 2024/11/23 15:29:56 by thi-mngu         ###   ########.fr       */
+/*   Created: 2025/02/22 15:17:01 by thi-mngu          #+#    #+#             */
+/*   Updated: 2025/02/22 15:52:37 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_strncmp(const char *s1, const char *s2)
+#include "push_swap.h"
+
+int is_duplicate( int size, int *num_list)
 {
 	int i;
-	const unsigned char *str1;
-	const unsigned char *str2;
-
-	str1 = (const unsigned char *)s1;
-	str2 = (const unsigned char *)s2;
+	int j;
 	i = 0;
-	while (str1[i] != '\0' && str2[i] != '\0')
+	if (!num_list)
+		return (0);
+	while (i < size - 1)
 	{
-		if (str1[i] != str2[i])
-			return (str1[i] - str2[i]);
+		j = i + 1;
+		while (j < size)
+		{
+			if (num_list[i] == num_list[j])
+				return (1);
+			j++;
+		}
 		i++;
 	}
-	return (str1[i] - str2[i]);
+	return (0);
 }
