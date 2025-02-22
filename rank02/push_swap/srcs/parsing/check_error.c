@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   check_error.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
+/*   By: minhnhat <minhnhat@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:17:41 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/22 15:54:34 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/02/22 22:25:13 by minhnhat         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,15 +14,15 @@
 
 void check_error(int size, char **arr)
 {
-	int	i;
+	int i;
 
-	i = 1 ;
+	i = 1;
 	while (i < size)
 	{
-		if (!is_int(arr[i]) || is_duplicate(size, (int *)arr))
+		if (!is_int(arr[i]))
 		{
 			ft_printf("%s\n", "Error");
-			break ;
+			break;
 		}
 		i++;
 	}
