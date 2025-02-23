@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_split.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhnhat <minhnhat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:21:49 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/18 21:37:45 by minhnhat         ###   ########.fr       */
+/*   Updated: 2025/02/23 11:48:04 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,9 @@ char **ft_split(char const *s, char c)
 	if (!result)
 		return (NULL);
 	if (!populate_words(result, s, c))
+	{
+		free(result);
 		return (NULL);
+	}
 	return (result);
 }

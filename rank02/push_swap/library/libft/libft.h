@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: minhnhat <minhnhat@student.42.fr>          +#+  +:+       +#+        */
+/*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:02:16 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/22 23:42:30 by minhnhat         ###   ########.fr       */
+/*   Updated: 2025/02/23 12:27:30 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,6 @@ typedef struct s_list
 void *ft_memset(void *ptr, int value, size_t num);
 void ft_bzero(void *s, size_t len);
 void *ft_memcpy(void *des, const void *src, size_t len);
-void *ft_memccpy(void *des, const void *src, int c, size_t size);
 void *ft_memmove(void *dest_str, const void *src_str, size_t numBytes);
 void *ft_memchr(const void *str, int c, size_t n);
 void *ft_calloc(size_t count, size_t size);
@@ -70,4 +69,6 @@ void ft_lstclear(t_list **lst, void (*del)(void *));
 void ft_lstiter(t_list *lst, void (*f)(void *));
 void ft_free_arr_2d(char **arr);
 void ft_free_arr_3d(char ***arr);
+void ft_free_process_2d(char **arr, size_t current);
+void ft_free_process_3d(char ***arr, size_t current);
 #endif

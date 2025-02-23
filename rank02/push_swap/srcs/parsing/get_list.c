@@ -12,49 +12,23 @@
 
 #include "push_swap.h"
 
-// char **get_args_list(int size, char **arr)
-// {
-// 	int i;
-
-// 	char **num_list;
-
-// 	i = 0;
-// 	if (!num_list)
-// 		return (NULL);
-// 	num_list = ft_split(arr, ' ');
-// 	while (i < num)
-// 	{
-// 		if (is_int(arr[i]))
-// 			num_list[i] = ft_atoi(arr[i]);
-// 		else
-// 		{
-// 			free(num_list);
-// 			return (NULL);
-// 		}
-// 		i++;
-// 	}
-// 	if (is_duplicate(num_list, num))
-// 	{
-// 		free(num_list);
-// 		return (NULL);
-// 	}
-// 	return (num_list);
-// }
-
 char **get_arr(int size, char **str)
 {
 	int i;
+	int	j;
 	char ***new_arr;
 
 	i = 0;
-	new_arr = malloc((size + 1) * sizeof(char **));
+	j = 0;
+	new_arr = (char ***)malloc((size + 1) * sizeof(char **));
 	if (!new_arr)
 		return (NULL);
 	while (i < size)
 	{
+		new_arr[i] = (char **)malloc(((count_words(str[i ], ' ')) + 1) * sizeof(char *));
 		new_arr[i] = ft_split(str[i], ' ');
 		if (!new_arr[i])
-			return (NULL);
+			ft_free_process_3d(new_arr, i);
 		ft_printf("%s\n", new_arr[i][0]);
 		ft_printf("%s\n", new_arr[i][1]);
 		i++;

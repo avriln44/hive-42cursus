@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:24:25 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/22 15:45:12 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/02/23 15:11:26 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int is_int(char *str)
 			sign = -1;
 		i++;
 	}
-	while ('0' <= str[i] && str[i] <= '9')
+	while (('0' <= str[i] && str[i] <= '9') || str[i] == ' ' || str[i] == '\t')
 	{
 		result = result * 10 + (str[i] - '0');
 		if (result * sign < (long)INT_MIN || result * sign > (long)INT_MAX)
@@ -39,9 +39,3 @@ int is_int(char *str)
 		return (0);
 	return (1);
 }
-// int main()
-// {
-// 	char *str = "-1443627638";
-// 	printf("%d\n", is_int(str));
-// 	return (0);
-// }

@@ -35,13 +35,12 @@ OBJS				:= ${SRCS:.c=.o}
 
 all: ${LIBFT} ${FT_PRINTF} ${NAME}
 
-
+%.o:	%.c
+	${CC}	${CFLAGS}	-o $@ -c $< ${INCLUDE}
 
 ${NAME}:	${OBJS} ${LIBFT} ${FT_PRINTF}
 		@cc ${OBJS} ${LIBFT} ${FT_PRINTF} -o ${NAME}
 
-%.o:	%.c
-	${CC}	${CFLAGS}	-o $@ -c $< ${INCLUDE}
 
 ${LIBFT}:
 		@$(MAKE) -C ${LIBFT_DIR}
@@ -57,8 +56,8 @@ clean:
 
 fclean:
 	rm	-f	${NAME} ${OBJS}
-	@$(MAKE) -C ${LIBFT_DIR} clean
-	@$(MAKE) -C ${FT_PRINTF_DIR} clean
+	@$(MAKE) -C ${LIBFT_DIR} fclean
+	@$(MAKE) -C ${FT_PRINTF_DIR} fclean
 
 re:    fclean    all
 
