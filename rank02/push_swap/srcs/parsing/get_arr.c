@@ -12,27 +12,26 @@
 
 #include "push_swap.h"
 
-char **get_arr(int size, char **str)
+char ***get_arr(int size, char **str)
 {
 	int i;
 	int	j;
 	char ***new_arr;
 
 	i = 0;
-	j = 0;
+	j = 1;
 	new_arr = (char ***)malloc((size + 1) * sizeof(char **));
 	if (!new_arr)
 		return (NULL);
-	while (i < size)
+	while (i < size - 1 && j < size)
 	{
-		new_arr[i] = (char **)malloc(((count_words(str[i ], ' ')) + 1) * sizeof(char *));
-		new_arr[i] = ft_split(str[i], ' ');
+		new_arr[i] = (char **)malloc(((count_words(str[j], ' ')) + 1) * sizeof(char *));
+		new_arr[i] = ft_split(str[j], ' ');
 		if (!new_arr[i])
 			ft_free_process_3d(new_arr, i);
-		ft_printf("%s\n", new_arr[i][0]);
-		ft_printf("%s\n", new_arr[i][1]);
 		i++;
+		j++;
 	}
 	new_arr[size] = NULL;
-	return (*new_arr);
+	return (new_arr);
 }

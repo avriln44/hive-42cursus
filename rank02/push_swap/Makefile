@@ -21,9 +21,11 @@ MAIN_C			:= main.c \
 
 PARSING_C 		:= arr_length.c \
 					check_error.c \
-					get_list.c \
+					get_arr.c \
 					is_duplicate.c \
 					is_int.c \
+					numbers_parsing.c \
+					sort_arr.c \
 
 SRCS			:= 	$(addprefix ${MAIN}/, ${MAIN_C})		\
 					$(addprefix ${PARSING}/, ${PARSING_C})	\

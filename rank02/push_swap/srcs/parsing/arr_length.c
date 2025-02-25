@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:34:00 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/22 15:47:01 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/02/24 12:29:32 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int count_words(const char *s, char delimiter)
 int arr_length(int size, char **arr)
 {
     int i;
-    i = 0;
+    i = 1;
     int final_count;
     final_count = 0;
     while (i < size)
@@ -46,10 +46,3 @@ int arr_length(int size, char **arr)
     }
     return (final_count);
 }
-// #include <stdio.h>
-// int main()
-// {
-//     char *arr[] = {" te xinh yeu", "6", "1 3 4"};
-//     printf("%d\n", arr_length(3, arr));
-//     return (0);
-// }
