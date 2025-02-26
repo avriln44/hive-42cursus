@@ -15,6 +15,8 @@ MAIN			:= ./srcs/main
 
 PARSING			:= ./srcs/parsing
 
+STACKS			:= ./srcs/stacks
+
 OPERATIONS		:= ./srcs/operations
 
 MAIN_C			:= main.c \
@@ -27,10 +29,17 @@ PARSING_C 		:= arr_length.c \
 					numbers_parsing.c \
 					sort_arr.c \
 
+STACKS_C		:=	push_stacks.c \
+
+OPERATIONS_C	:=	swap.c \
+					push.c \
+					rotate.c \
+					rev_rotate.c \
+
 SRCS			:= 	$(addprefix ${MAIN}/, ${MAIN_C})		\
 					$(addprefix ${PARSING}/, ${PARSING_C})	\
-
-
+					$(addprefix ${STACKS}/, ${STACKS_C})	\
+					$(addprefix ${OPERATIONS}/, ${OPERATIONS_C}) \
 
 OBJS				:= ${SRCS:.c=.o}
 

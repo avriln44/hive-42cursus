@@ -23,7 +23,7 @@ char ***get_arr(int size, char **str)
 	new_arr = (char ***)malloc((size + 1) * sizeof(char **));
 	if (!new_arr)
 		return (NULL);
-	while (i < size - 1 && j < size)
+	while (i <= size - 1 && j <= size)
 	{
 		new_arr[i] = (char **)malloc(((count_words(str[j], ' ')) + 1) * sizeof(char *));
 		new_arr[i] = ft_split(str[j], ' ');

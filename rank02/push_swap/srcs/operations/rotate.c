@@ -1,39 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   numbers_parsing.c                                  :+:      :+:    :+:   */
+/*   rotate.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 10:03:29 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/26 16:24:26 by thi-mngu         ###   ########.fr       */
+/*   Created: 2025/02/26 18:45:58 by thi-mngu          #+#    #+#             */
+/*   Updated: 2025/02/26 19:31:41 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *numbers_parsing(int size, char ***arr)
+void	rotate(t_stack *stack)
 {
-	int	k;
-	int	i;
-	int	j;
-	int	*nbr_arr;
+	t_node	*first;
 
-	k = 0;
-	i = 0;
-	nbr_arr = (int *)malloc((size) * sizeof(int));
-	if (!nbr_arr)
-		return (NULL);
-	while (k < size && arr[i])
-	{
-		j = 0;
-		while (k < size && arr[i][j])
-		{
-			nbr_arr[k] = ft_atoi(arr[i][j]);
-			j++;
-			k++;
-		}
-		i++;
-	}
-	return (nbr_arr);
+	if (!stack || (!stack->top && !stack->bot))
+		return ;
+	first = stack->top;
+	stack->top = stack->top->prev;
+
+	stack->bot->prev = first;
+	first->next = stack->bot->next;
+	first->prev = NULL;
 }

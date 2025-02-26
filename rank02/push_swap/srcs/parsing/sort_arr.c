@@ -6,13 +6,13 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 15:13:48 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/24 15:50:34 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/02/26 17:31:14 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	swap(int *num1, int *num2)
+static void	swap_nbr(int *num1, int *num2)
 {
 	int	temp;
 
@@ -53,7 +53,7 @@ int	*sort_arr(int size, int *arr)
 		{
 			if (sorted_arr[j] >= sorted_arr[j + 1])
 			{
-				swap(&sorted_arr[j], &sorted_arr[j + 1]);
+				swap_nbr(&sorted_arr[j], &sorted_arr[j + 1]);
 			}
 			j++;
 		}
