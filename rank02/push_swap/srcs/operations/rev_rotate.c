@@ -6,24 +6,37 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 19:33:23 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/26 20:16:45 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/01 14:03:32 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include  "push_swap.h"
 
-void rev_rotate(t_stack *stack)
+static int	rev_rotate(t_stack *stack)
 {
 	t_node	*last;
 
 	if (!stack || (!stack->top && !stack->bot))
-		return ;
+		return (0);
 	last = stack->bot;
-
-	stack->top->next = last;
+	stack->bot = last->next;
+	if (stack->bot)
+		stack->bot->prev = NULL;
 	last->prev = stack->top;
+	stack->top->next = last;
 	last->next = NULL;
+	stack->top = last;
+	return (1);
+}
 
-	stack->bot = stack->bot->next;
-	stack->bot->prev = NULL;
+void	rra(t_push_swap *ps)
+{
+	if (rev_rotate(ps->stack_a))
+		ft_printf("rra\n");
+}
+
+void	rrb(t_push_swap *ps)
+{
+	if (rev_rotate(ps->stack_b))
+		ft_printf("rrb\n");
 }

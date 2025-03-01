@@ -6,18 +6,17 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:24:25 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/23 15:11:26 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/01 14:08:20 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "push_swap.h"
 
-int is_int(char *str)
+int	is_int(char *str)
 {
-	long i;
-	int sign;
-	long result;
+	long	i;
+	int		sign;
+	long	result;
 
 	i = 0;
 	sign = 1;

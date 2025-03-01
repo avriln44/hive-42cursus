@@ -1,22 +1,23 @@
-// /* ************************************************************************** */
-// /*                                                                            */
-// /*                                                        :::      ::::::::   */
-// /*   main.c                                             :+:      :+:    :+:   */
-// /*                                                    +:+ +:+         +:+     */
-// /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
-// /*                                                +#+#+#+#+#+   +#+           */
-// /*   Created: 2025/02/22 13:34:27 by thi-mngu          #+#    #+#             */
-// /*   Updated: 2025/02/22 15:17:25 by thi-mngu         ###   ########.fr       */
-// /*                                                                            */
-// /* ************************************************************************** */
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   get_arr.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/03/01 12:07:52 by thi-mngu          #+#    #+#             */
+/*   Updated: 2025/03/01 14:14:09 by thi-mngu         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
-char ***get_arr(int size, char **str)
+char	***get_arr(int size, char **str)
 {
-	int i;
-	int	j;
-	char ***new_arr;
+	int		i;
+	int		j;
+	int		count;
+	char	***new_arr;
 
 	i = 0;
 	j = 1;
@@ -25,7 +26,8 @@ char ***get_arr(int size, char **str)
 		return (NULL);
 	while (i <= size - 1 && j <= size)
 	{
-		new_arr[i] = (char **)malloc(((count_words(str[j], ' ')) + 1) * sizeof(char *));
+		count = (count_words(str[j], ' ')) + 1;
+		new_arr[i] = (char **)malloc(count * sizeof(char *));
 		new_arr[i] = ft_split(str[j], ' ');
 		if (!new_arr[i])
 			ft_free_process_3d(new_arr, i);

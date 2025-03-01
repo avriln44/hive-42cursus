@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 15:13:48 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/26 17:31:14 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/01 14:13:18 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,10 @@ static void	swap_nbr(int *num1, int *num2)
 	*num1 = *num2;
 	*num2 = temp;
 }
-static int *duplicate_arr(int size, int *arr)
+
+static int	*duplicate_arr(int size, int *arr)
 {
-	int k;
+	int	k;
 	int	*duplicate;
 
 	k = 0;
@@ -36,9 +37,10 @@ static int *duplicate_arr(int size, int *arr)
 	}
 	return (duplicate);
 }
+
 int	*sort_arr(int size, int *arr)
 {
-	int i;
+	int	i;
 	int	j;
 	int	*sorted_arr;
 

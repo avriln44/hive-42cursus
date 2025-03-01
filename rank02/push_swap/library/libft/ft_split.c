@@ -6,16 +6,16 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:21:49 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/23 11:48:04 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/01 11:57:50 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static int count_words(const char *s, char delimiter)
+static int	count_words(const char *s, char delimiter)
 {
-	int count;
-	int in_word;
+	int	count;
+	int	in_word;
 
 	count = 0;
 	in_word = 0;
@@ -35,7 +35,7 @@ static int count_words(const char *s, char delimiter)
 	return (count);
 }
 
-static void free_result(char **result, int count)
+static void	free_result(char **result, int count)
 {
 	while (count >= 0)
 	{
@@ -45,10 +45,10 @@ static void free_result(char **result, int count)
 	free(result);
 }
 
-static int populate_words(char **result, const char *s, char delimiter)
+static int	populate_words(char **result, const char *s, char delimiter)
 {
-	int word_index;
-	const char *start;
+	int			word_index;
+	const char	*start;
 
 	word_index = 0;
 	while (*s)
@@ -72,10 +72,10 @@ static int populate_words(char **result, const char *s, char delimiter)
 	return (1);
 }
 
-char **ft_split(char const *s, char c)
+char	**ft_split(char const *s, char c)
 {
-	char **result;
-	int word_count;
+	char	**result;
+	int		word_count;
 
 	if (!s)
 		return (NULL);

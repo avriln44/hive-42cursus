@@ -6,13 +6,13 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:03:29 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/02/26 16:24:26 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/01 14:10:52 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int *numbers_parsing(int size, char ***arr)
+int	*numbers_parsing(int size, char ***arr)
 {
 	int	k;
 	int	i;
