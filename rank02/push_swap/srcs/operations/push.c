@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 17:36:32 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:35:34 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:14:10 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,21 @@ static int	push(t_stack *stack1, t_stack *stack2)
 	if (stack2->top)
 		stack2->top->next = first1;
 	else
-		stack2->top = first1;
+		stack2->bot = first1;
+	stack2->top = first1;
 	stack1->size--;
 	stack2->size++;
 	return (1);
 }
 
-void	pa(t_push_swap *ps)
+void	pa(t_ps *ps)
 {
-	if (push(ps->stack_a, ps->stack_b))
+	if (push(ps->stack_b, ps->stack_a))
 		ft_printf("pa\n");
 }
 
-void	pb(t_push_swap *ps)
+void	pb(t_ps *ps)
 {
-	if (push(ps->stack_b, ps->stack_a))
+	if (push(ps->stack_a, ps->stack_b))
 		ft_printf("pb\n");
 }

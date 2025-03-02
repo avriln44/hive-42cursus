@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 14:50:10 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:12:53 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/02 12:05:55 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,13 @@ static int	swap(t_stack *stack)
 	return (1);
 }
 
-void	sa(t_push_swap *ps)
+void	sa(t_ps *ps)
 {
 	if (swap(ps->stack_a))
 		ft_printf("sa\n");
 }
 
-void	sb(t_push_swap *ps)
+void	sb(t_ps *ps)
 {
 	if (swap(ps->stack_b))
 		ft_printf("sb\n");

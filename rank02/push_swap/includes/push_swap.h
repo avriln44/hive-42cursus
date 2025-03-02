@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:33:46 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:02:12 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/02 13:59:15 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,12 +31,18 @@ typedef struct s_stack
 	struct s_node	*bot;
 	int				size;
 }	t_stack;
-typedef struct s_push_swap
+typedef struct s_ps
 {
 	struct s_stack	*stack_a;
 	struct s_stack	*stack_b;
 	int				steps;
-}	t_push_swap;
+}	t_ps;
+typedef struct s_chunk
+{
+	int	left;
+	int	right;
+	int	mid;
+}	t_chunk;
 
 int	is_duplicate(int size, int *num_list);
 int	count_words(const char *s, char delimiter);
@@ -49,14 +55,15 @@ t_stack	*stack_generate(int *nbr_arr, int size);
 
 void	check_error(int size, char **arr);
 
-void	pa(t_push_swap *ps);
-void	pb(t_push_swap *ps);
-void	sa(t_push_swap *ps);
-void	sb(t_push_swap *ps);
-void	ra(t_push_swap *ps);
-void	rb(t_push_swap *ps);
-void	rra(t_push_swap *ps);
-void	rrb(t_push_swap *ps);
-
+void	pa(t_ps *ps);
+void	pb(t_ps *ps);
+void	sa(t_ps *ps);
+void	sb(t_ps *ps);
+void	ra(t_ps *ps);
+void	rb(t_ps *ps);
+void	rra(t_ps *ps);
+void	rrb(t_ps *ps);
+void	a2b(t_ps *ps, int size);
+void	sort3(t_ps *ps);
 char	***get_arr(int size, char **str);
 #endif

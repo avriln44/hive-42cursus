@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 18:45:58 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:04:06 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/02 15:30:36 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	rotate(t_stack *stack)
 {
 	t_node	*first;
 
-	if (!stack || (!stack->top && !stack->bot))
+	if (!stack || !stack->top || !stack->top->prev)
 		return (0);
 	first = stack->top;
 	stack->top = first->prev;
@@ -28,13 +28,13 @@ static int	rotate(t_stack *stack)
 	return (1);
 }
 
-void	ra(t_push_swap *ps)
+void	ra(t_ps *ps)
 {
 	if (rotate(ps->stack_a))
 		ft_printf("ra\n");
 }
 
-void	rb(t_push_swap *ps)
+void	rb(t_ps *ps)
 {
 	if (rotate(ps->stack_b))
 		ft_printf("rb\n");

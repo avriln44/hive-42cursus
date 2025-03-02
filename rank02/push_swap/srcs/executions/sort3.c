@@ -6,13 +6,13 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 13:42:12 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:02:39 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/02 14:15:03 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	sort3(t_push_swap *ps)
+void	sort3(t_ps *ps)
 {
 	int	top;
 	int	mid;
@@ -30,7 +30,7 @@ void	sort3(t_push_swap *ps)
 		sa(ps);
 	else if (top < mid && top > bot && mid > bot)
 		rra(ps);
-	else if (top > mid && top > bot && mid < bot)
+	else if (top > bot && mid < bot)
 		ra(ps);
 	else if (top > mid && top > bot && mid > bot)
 	{

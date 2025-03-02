@@ -39,6 +39,8 @@ OPERATIONS_C	:=	swap.c \
 					rev_rotate.c \
 
 EXECUTIONS_C	:=	sort3.c \
+					a2b.c \
+					b2a.c \
 
 SRCS			:= 	$(addprefix ${MAIN}/, ${MAIN_C})		\
 					$(addprefix ${PARSING}/, ${PARSING_C})	\
@@ -55,7 +57,7 @@ all: ${LIBFT} ${FT_PRINTF} ${NAME}
 	${CC}	${CFLAGS}	-o $@ -c $< ${INCLUDE}
 
 ${NAME}:	${OBJS} ${LIBFT} ${FT_PRINTF}
-		@cc ${OBJS} ${LIBFT} ${FT_PRINTF} -o ${NAME}
+			@cc ${OBJS} ${LIBFT} ${FT_PRINTF} -o ${NAME}
 
 
 ${LIBFT}:
