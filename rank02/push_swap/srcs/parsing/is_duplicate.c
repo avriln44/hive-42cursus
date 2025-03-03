@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:17:01 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:10:15 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/03 15:58:00 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,12 +23,22 @@ int	is_duplicate( int size, int *num_list)
 	while (i < size - 1)
 	{
 		j = i + 1;
-		while (j < size)
-		{
-			if (num_list[i] == num_list[j])
-				return (1);
-			j++;
-		}
+		if (num_list[i] == num_list[i + 1])
+			return (1);
+		i++;
+	}
+	return (0);
+}
+
+int	is_different(int *num_list, int *arr, int size)
+{
+	int	i;
+
+	i = 0;
+	while (i <= size)
+	{
+		if (num_list[i] != arr[i])
+			return (1);
 		i++;
 	}
 	return (0);

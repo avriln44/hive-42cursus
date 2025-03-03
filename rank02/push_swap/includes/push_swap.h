@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:33:46 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/02 13:59:15 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/03 18:20:41 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,7 @@ void	rb(t_ps *ps);
 void	rra(t_ps *ps);
 void	rrb(t_ps *ps);
 void	a2b(t_ps *ps, int size);
+void	b2a(t_ps *ps);
 void	sort3(t_ps *ps);
-char	***get_arr(int size, char **str);
+char	***get_arr(int size, char **argv);
 #endif

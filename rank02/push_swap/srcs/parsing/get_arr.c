@@ -6,13 +6,13 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:07:52 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:14:09 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/03 18:30:01 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	***get_arr(int size, char **str)
+char	***get_arr(int size, char **argv)
 {
 	int		i;
 	int		j;
@@ -24,11 +24,11 @@ char	***get_arr(int size, char **str)
 	new_arr = (char ***)malloc((size + 1) * sizeof(char **));
 	if (!new_arr)
 		return (NULL);
-	while (i <= size - 1 && j <= size)
+	while (i <= size - 1 && j < size)
 	{
-		count = (count_words(str[j], ' ')) + 1;
+		count = (count_words(argv[j], ' ')) + 1;
 		new_arr[i] = (char **)malloc(count * sizeof(char *));
-		new_arr[i] = ft_split(str[j], ' ');
+		new_arr[i] = ft_split(argv[j], ' ');
 		if (!new_arr[i])
 			ft_free_process_3d(new_arr, i);
 		i++;

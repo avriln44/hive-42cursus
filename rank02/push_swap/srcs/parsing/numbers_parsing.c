@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:03:29 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:10:52 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/03 17:19:28 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ int	*numbers_parsing(int size, char ***arr)
 		j = 0;
 		while (k < size && arr[i][j])
 		{
-			nbr_arr[k] = ft_atoi(arr[i][j]);
+			if (!is_int(arr[i][j]))
+				return (NULL);
+			else
+				nbr_arr[k] = ft_atoi(arr[i][j]);
 			j++;
 			k++;
 		}
