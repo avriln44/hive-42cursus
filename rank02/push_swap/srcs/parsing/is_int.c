@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 11:24:25 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:08:20 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/08 11:44:50 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@ int	is_int(char *str)
 		if (str[i] == '-')
 			sign = -1;
 		i++;
+		if (!str[i])
+			return (0);
 	}
 	while (('0' <= str[i] && str[i] <= '9') || str[i] == ' ' || str[i] == '\t')
 	{

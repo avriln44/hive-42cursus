@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/02 11:58:55 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/03 16:43:48 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/08 12:08:52 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,8 @@ static void	pushing(t_ps *ps, t_chunk chunk_id, int size)
 	{
 		node = ps->stack_a->top;
 		status = valid(chunk_id, node);
-		if (!status)
+		if (!status && ps->stack_a->size > 1
+			&& ps->stack_a->top->id > chunk_id.right)
 			ra(ps);
 		else if (status == 1)
 		{

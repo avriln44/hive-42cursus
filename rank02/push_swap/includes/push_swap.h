@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:33:46 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/03 18:20:41 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/08 11:41:25 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,6 @@ typedef struct s_ps
 {
 	struct s_stack	*stack_a;
 	struct s_stack	*stack_b;
-	int				steps;
 }	t_ps;
 typedef struct s_chunk
 {
@@ -44,16 +43,14 @@ typedef struct s_chunk
 	int	mid;
 }	t_chunk;
 
-int	is_duplicate(int size, int *num_list);
-int	count_words(const char *s, char delimiter);
-int	is_int(char *str);
-int	arr_length(int size, char **arr);
-int	*numbers_parsing(int size, char ***arr);
-int	*sort_arr(int size, int *arr);
+int		is_duplicate(int size, int *num_list);
+int		count_words(const char *s, char delimiter);
+int		is_int(char *str);
+int		arr_length(int size, char **arr);
+int		*numbers_parsing(int size, char ***arr);
+int		*sort_arr(int size, int *arr);
 
 t_stack	*stack_generate(int *nbr_arr, int size);
-
-void	check_error(int size, char **arr);
 
 void	pa(t_ps *ps);
 void	pb(t_ps *ps);
@@ -67,4 +64,6 @@ void	a2b(t_ps *ps, int size);
 void	b2a(t_ps *ps);
 void	sort3(t_ps *ps);
 char	***get_arr(int size, char **argv);
+
+int		util(char **argv, int size, int argc);
 #endif

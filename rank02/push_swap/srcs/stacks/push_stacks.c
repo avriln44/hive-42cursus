@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 14:50:17 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:07:25 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/05 16:47:29 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,29 +59,38 @@ static int	get_index(int num, int size, int *arr)
 	return (-1);
 }
 
+static void	assign_node(t_node *node, t_stack *stack, int value)
+{
+	if (!node)
+	{
+		free_stack(stack);
+		stack = NULL;
+		return ;
+	}
+	node->value = value;
+	node->next = NULL;
+	node->prev = NULL;
+}
+
 t_stack	*stack_generate(int *nbr_arr, int size)
 {
 	int		i;
 	t_stack	*stack;
 	t_node	*node;
+	int		*sorted_arr;
 
 	i = size;
 	stack = (t_stack *)ft_calloc(1, sizeof(t_stack));
-	if (!stack)
+	sorted_arr = sort_arr(size, nbr_arr);
+	if (!stack || !sorted_arr)
 		return (NULL);
 	while (i--)
 	{
 		node = (t_node *)malloc(sizeof(t_node));
-		if (!node)
-		{
-			free_stack(stack);
-			return (NULL);
-		}
-		node->value = nbr_arr[i];
-		node->id = get_index(nbr_arr[i], size, sort_arr(size, nbr_arr));
-		node->next = NULL;
-		node->prev = NULL;
+		assign_node(node, stack, nbr_arr[i]);
+		node->id = get_index(nbr_arr[i], size, sorted_arr);
 		insert_node(stack, node);
 	}
+	free(sorted_arr);
 	return (stack);
 }

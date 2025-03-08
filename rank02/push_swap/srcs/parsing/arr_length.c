@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:34:00 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:10:02 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/08 15:35:19 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,10 @@ int	arr_length(int size, char **arr)
 	final_count = 0;
 	while (i < size)
 	{
-		final_count += count_words(arr[i], ' ');
+		if (arr[i] != NULL)
+		{
+			final_count += count_words(arr[i], ' ');
+		}
 		i++;
 	}
 	return (final_count);

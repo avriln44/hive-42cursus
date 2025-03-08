@@ -22,9 +22,9 @@ OPERATIONS		:= ./srcs/operations
 EXECUTIONS		:= ./srcs/executions
 
 MAIN_C			:= main.c \
+				   util.c \
 
-PARSING_C 		:= arr_length.c \
-					check_error.c \
+PARSING_C 		:=  arr_length.c \
 					get_arr.c \
 					is_duplicate.c \
 					is_int.c \

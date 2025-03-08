@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 15:13:48 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/01 14:13:18 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/05 13:20:44 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ static int	*duplicate_arr(int size, int *arr)
 	k = 0;
 	duplicate = (int *)malloc((size + 1) * sizeof(int));
 	if (!duplicate)
+	{
+		free(arr);
 		return (NULL);
+	}
 	while (k < size)
 	{
 		duplicate[k] = arr[k];
@@ -47,16 +50,17 @@ int	*sort_arr(int size, int *arr)
 	i = 0;
 	sorted_arr = duplicate_arr(size, arr);
 	if (!sorted_arr)
+	{
+		free(arr);
 		return (NULL);
+	}
 	while (i < size)
 	{
 		j = 0;
 		while (j < size - i - 1)
 		{
 			if (sorted_arr[j] >= sorted_arr[j + 1])
-			{
 				swap_nbr(&sorted_arr[j], &sorted_arr[j + 1]);
-			}
 			j++;
 		}
 		i++;
