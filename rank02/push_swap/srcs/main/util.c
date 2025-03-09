@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/05 16:22:03 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/08 15:47:04 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/09 15:01:35 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,22 +62,10 @@ static t_ps	ps_generate(int *num_list, int size)
 	return (ps);
 }
 
-static int	*get_num_list(char **argv, int size, int argc)
+static void	free_arr(int *num_list, int *sorted_list)
 {
-	char	***arr;
-	int		*num_list;
-
-	arr = get_arr(argc, argv);
-	if (!arr)
-		return (NULL);
-	num_list = numbers_parsing(size, arr);
-	if (!num_list)
-	{
-		ft_free_arr_3d(arr);
-		return (NULL);
-	}
-	ft_free_arr_3d(arr);
-	return (num_list);
+	free(num_list);
+	free(sorted_list);
 }
 
 int	util(char **argv, int size, int argc)
@@ -87,24 +75,23 @@ int	util(char **argv, int size, int argc)
 	int		*sorted_list;
 
 	num_list = get_num_list(argv, size, argc);
-	sorted_list = sort_arr(size, num_list);
 	if (!num_list)
 		return (0);
+	sorted_list = sort_arr(size, num_list);
 	if (!sorted_list)
 	{
 		free(num_list);
 		return (0);
 	}
-	if (is_duplicate(size, sorted_list) || sorted_list == num_list)
+	if (is_duplicate(size, sorted_list))
 	{
-		free(sorted_list);
-		free(num_list);
+		free_arr(num_list, sorted_list);
 		return (0);
 	}
 	ps = ps_generate(num_list, size);
-	ops_case(ps);
-	free(num_list);
-	free(sorted_list);
+	if (compare(num_list, sorted_list, size))
+		ops_case(ps);
+	free_arr(num_list, sorted_list);
 	clean_ps(&ps);
 	return (1);
 }

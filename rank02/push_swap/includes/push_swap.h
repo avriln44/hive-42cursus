@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 13:33:46 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/08 11:41:25 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/09 13:41:37 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,11 +44,13 @@ typedef struct s_chunk
 }	t_chunk;
 
 int		is_duplicate(int size, int *num_list);
+int		compare(int *original, int *sorted, int size);
 int		count_words(const char *s, char delimiter);
 int		is_int(char *str);
 int		arr_length(int size, char **arr);
 int		*numbers_parsing(int size, char ***arr);
 int		*sort_arr(int size, int *arr);
+int		*get_num_list(char **argv, int size, int argc);
 
 t_stack	*stack_generate(int *nbr_arr, int size);
 

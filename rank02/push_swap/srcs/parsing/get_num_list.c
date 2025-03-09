@@ -1,31 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   get_num_list.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 15:23:59 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/09 14:19:54 by thi-mngu         ###   ########.fr       */
+/*   Created: 2025/03/09 15:01:52 by thi-mngu          #+#    #+#             */
+/*   Updated: 2025/03/09 15:04:10 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	*get_num_list(char **argv, int size, int argc)
 {
-	int	size;
-	int	*num_list;
+	char	***arr;
+	int		*num_list;
 
-	size = arr_length(argc, argv);
-	num_list = get_num_list(argv, size, argc);
-	if (argc < 2)
-		return (0);
-	if (!util(argv, size, argc) || size <= 1 || !num_list)
+	arr = get_arr(argc, argv);
+	if (!arr)
+		return (NULL);
+	num_list = numbers_parsing(size, arr);
+	if (!num_list)
 	{
-		write(2, "Error\n", 6);
-		return (1);
+		ft_free_arr_3d(arr);
+		return (NULL);
 	}
-	free(num_list);
-	return (0);
+	ft_free_arr_3d(arr);
+	return (num_list);
 }

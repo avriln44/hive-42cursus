@@ -6,11 +6,17 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 10:03:29 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/08 11:42:21 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/09 15:08:27 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+static	void	*free_arr(int *arr)
+{
+	free(arr);
+	return (NULL);
+}
 
 int	*numbers_parsing(int size, char ***arr)
 {
@@ -30,9 +36,8 @@ int	*numbers_parsing(int size, char ***arr)
 		while (k < size && arr[i][j])
 		{
 			if (!is_int(arr[i][j]))
-				return (NULL);
-			else
-				nbr_arr[k] = ft_atoi(arr[i][j]);
+				return (free_arr(nbr_arr));
+			nbr_arr[k] = ft_atoi(arr[i][j]);
 			j++;
 			k++;
 		}

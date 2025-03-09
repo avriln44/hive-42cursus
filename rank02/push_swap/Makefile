@@ -26,10 +26,12 @@ MAIN_C			:= main.c \
 
 PARSING_C 		:=  arr_length.c \
 					get_arr.c \
+					get_num_list.c \
 					is_duplicate.c \
 					is_int.c \
 					numbers_parsing.c \
 					sort_arr.c \
+					compare.c \
 
 STACKS_C		:=	push_stacks.c \
 

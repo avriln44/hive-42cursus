@@ -1,31 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   compare.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/22 15:23:59 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/09 14:19:54 by thi-mngu         ###   ########.fr       */
+/*   Created: 2025/03/09 13:11:11 by thi-mngu          #+#    #+#             */
+/*   Updated: 2025/03/09 14:02:00 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	compare(int *original, int *sorted, int size)
 {
-	int	size;
-	int	*num_list;
+	int	i;
 
-	size = arr_length(argc, argv);
-	num_list = get_num_list(argv, size, argc);
-	if (argc < 2)
-		return (0);
-	if (!util(argv, size, argc) || size <= 1 || !num_list)
+	i = 0;
+	while (i < size)
 	{
-		write(2, "Error\n", 6);
-		return (1);
+		if (original[i] != sorted[i])
+			return (1);
+		i++;
 	}
-	free(num_list);
 	return (0);
 }
