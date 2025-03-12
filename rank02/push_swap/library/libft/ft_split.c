@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:21:49 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/05 15:33:43 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/12 14:52:33 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,11 @@ char	**ft_split(char const *s, char c)
 	char	**result;
 	int		word_count;
 
-	if (!s)
+	if (!s || !*s)
 		return (NULL);
 	word_count = count_words(s, c);
+	if (word_count == 0)
+		return (NULL);
 	result = (char **)malloc((word_count + 1) * sizeof(char *));
 	if (!result)
 		return (NULL);
