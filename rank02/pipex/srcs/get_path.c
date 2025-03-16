@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 14:02:15 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/15 16:49:26 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/16 16:23:42 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ char	**get_cmd_arr(char **envp)
 	if (!path)
 		return (NULL);
 	word = count_words((char *)path, ':');
-	ft_printf("total words: %d\n", word);
 	cmd_arr = (char **)malloc((word) * sizeof(char *));
 	if (!cmd_arr)
 		return (NULL);
@@ -51,6 +50,7 @@ char	**get_cmd_arr(char **envp)
 	cmd_arr[word] = NULL;
 	return (cmd_arr);
 }
+
 char	*get_valid_cmd(char *cmd, char **envp)
 {
 	int		i;
@@ -58,10 +58,20 @@ char	*get_valid_cmd(char *cmd, char **envp)
 	char	*valid_cmd;
 	char 	**check;
 
-	check = ft_split(cmd, ' ');
+	if (!cmd)
+			return (NULL);
 	cmd_arr = get_cmd_arr(envp);
-	if (!cmd_arr || !cmd)
-		return (0);
+	check = ft_split(cmd, ' ');
+	if (!cmd_arr)
+	{
+		ft_free_arr_2d(cmd_arr);
+		return (NULL);
+	}
+	if (!check)
+	{
+		ft_free_arr_2d(check);
+		return (NULL);
+	}
 	i =  0;
 	while (cmd_arr[i])
 	{
@@ -80,7 +90,6 @@ char	*get_valid_cmd(char *cmd, char **envp)
 			free(cmd_arr[i]);
 			return (NULL);
 		}
-		ft_printf("%s\n", valid_cmd);
 		if (access(valid_cmd, X_OK) == 0)
 			return (valid_cmd);
 		free(valid_cmd);

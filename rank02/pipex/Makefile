@@ -15,7 +15,8 @@ INCLUDE 		:= -I ${LIBFT_DIR} -I ${FT_PRINTF_DIR} -I ./includes/
 SRCS			:= 	./srcs/main.c \
 					./srcs/utils.c \
 				   	./srcs/get_path.c \
-					./srcs/execute.c  \
+					./srcs/file_check.c  \
+					./srcs/pipex_exec.c \
 
 
 OBJS				:= ${SRCS:.c=.o}
