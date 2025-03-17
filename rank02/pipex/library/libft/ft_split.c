@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:21:49 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/15 14:30:53 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/17 18:32:46 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,9 +86,6 @@ char	**ft_split(char const *s, char c)
 	if (!result)
 		return (NULL);
 	if (!populate_words(result, s, c))
-	{
-		free(result);
 		return (NULL);
-	}
 	return (result);
 }

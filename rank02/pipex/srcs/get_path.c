@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 14:02:15 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/16 16:23:42 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/17 18:49:54 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,25 +30,42 @@ char	*get_path(char **envp)
 
 char	**get_cmd_arr(char **envp)
 {
-	int		word;
 	char	**cmd_arr;
 	char	*path;
 
+	if (!envp || !*envp)
+		return (NULL);
 	path = get_path(envp);
 	if (!path)
 		return (NULL);
-	word = count_words((char *)path, ':');
-	cmd_arr = (char **)malloc((word) * sizeof(char *));
+	cmd_arr = ft_split(path, ':');
 	if (!cmd_arr)
 		return (NULL);
-	cmd_arr = ft_split((char *)path, ':');
-	if (!cmd_arr)
-	{
-		ft_free_arr_2d(cmd_arr);
-		return (NULL);
-	}
-	cmd_arr[word] = NULL;
 	return (cmd_arr);
+}
+
+static char	*get_temp_cmd(char *cmd)
+{
+	char	*temp_cmd;
+
+	if (!cmd)
+		return (NULL);
+	temp_cmd = ft_strjoin(cmd, "/");
+	if (!temp_cmd)
+		return (NULL);
+	return (temp_cmd);
+}
+
+static char **split_cmd(char *cmd)
+{
+	char	**split;
+
+	if (!cmd)
+		return (NULL);
+	split = ft_split(cmd, ' ');
+	if (!split)
+		return (NULL);
+	return (split);
 }
 
 char	*get_valid_cmd(char *cmd, char **envp)
@@ -56,38 +73,33 @@ char	*get_valid_cmd(char *cmd, char **envp)
 	int		i;
 	char	**cmd_arr;
 	char	*valid_cmd;
+	char	*temp_cmd;
 	char 	**check;
 
-	if (!cmd)
-			return (NULL);
+	if (!cmd || !envp || !*envp)
+		return (NULL);
 	cmd_arr = get_cmd_arr(envp);
-	check = ft_split(cmd, ' ');
-	if (!cmd_arr)
-	{
-		ft_free_arr_2d(cmd_arr);
+	check = split_cmd(cmd);
+	if (!cmd_arr || !*cmd_arr)
 		return (NULL);
-	}
-	if (!check)
-	{
-		ft_free_arr_2d(check);
+	if (!check || !*check)
 		return (NULL);
-	}
-	i =  0;
+	i = 0;
 	while (cmd_arr[i])
 	{
-		valid_cmd = (char *)malloc((ft_strlen(cmd_arr[i]) + ft_strlen(check[0])) + 2 * sizeof(char));
-		if (!valid_cmd)
-			return (NULL);
-		valid_cmd = ft_strjoin(cmd_arr[i], "/");
-		if (!valid_cmd)
+		temp_cmd = get_temp_cmd(cmd_arr[i]);
+		if (!temp_cmd)
 		{
-			free(cmd_arr[i]);
+			//ft_free_arr_2d(cmd_arr);
+			//ft_free_arr_2d(check);
 			return (NULL);
 		}
-		valid_cmd = ft_strjoin(valid_cmd, check[0]);
+		valid_cmd = ft_strjoin(temp_cmd, check[0]);
 		if (!valid_cmd)
 		{
-			free(cmd_arr[i]);
+			free(temp_cmd);
+			// ft_free_arr_2d(cmd_arr);
+			// ft_free_arr_2d(check);
 			return (NULL);
 		}
 		if (access(valid_cmd, X_OK) == 0)
@@ -95,5 +107,7 @@ char	*get_valid_cmd(char *cmd, char **envp)
 		free(valid_cmd);
 		i++;
 	}
+	ft_free_arr_2d(cmd_arr);
+	ft_free_arr_2d(check);
 	return (NULL);
 }

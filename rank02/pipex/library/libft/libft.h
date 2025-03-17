@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/23 14:02:16 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/16 16:16:55 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/17 14:39:33 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ int		ft_tolower(int c);
 int		ft_toupper(int c);
 int		ft_atoi(const char *str);
 int		ft_memcmp(const void *str1, const void *str2, size_t n);
-int		count_words(const char *s, char delimiter);
+int		count_words(char *s, char delimiter);
 t_list	*ft_lstnew(void *content);
 int		ft_lstsize(t_list *lst);
 void	ft_lstadd_front(t_list **lst, t_list *new);
