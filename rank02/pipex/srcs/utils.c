@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 12:39:08 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/17 17:15:54 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/22 17:03:26 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ void	pipex_execute(char  **envp, char  *cmd)
 		free(cmd_path);
 		ft_free_arr_2d(args);
 		perror("execve failed");
-		exit(1);
+		exit(127);
 	}
 	free(cmd_path);
 	ft_free_arr_2d(args);

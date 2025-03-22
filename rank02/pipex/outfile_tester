@@ -1,12 +1,12 @@
 4
 42_pipex_tester
-Makefile
 includes
 infile.txt
 library
+Makefile
 outfile
-outfile.txt
 outfile_tester
+outfile.txt
 pipex
 pipex-tester
 srcs

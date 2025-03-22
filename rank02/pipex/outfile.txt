@@ -1,0 +1,13 @@
+     1	total 36$
+     2	drwxr-xr-x 8 thi-mngu 2020   173 Mar 22 16:43 .$
+     3	drwxr-xr-x 6 thi-mngu 2020    69 Mar 12 18:44 ..$
+     4	drwxr-xr-x 2 thi-mngu 2020    27 Mar 15 13:55 .vscode$
+     5	drwxr-xr-x 5 thi-mngu 2020   163 Mar 22 16:44 42_pipex_tester$
+     6	-rw-r--r-- 1 thi-mngu 2020   946 Mar 16 14:45 Makefile$
+     7	drwxr-xr-x 2 thi-mngu 2020    21 Mar 15 12:39 includes$
+     8	-rw-r--r-- 1 thi-mngu 2020    20 Mar 17 14:31 infile.txt$
+     9	drwxr-xr-x 4 thi-mngu 2020    36 Mar 15 12:53 library$
+    10	-rw-r--r-- 1 thi-mngu 2020   767 Mar 22 16:50 outfile.txt$
+    11	-rwxr-xr-x 1 thi-mngu 2020 21880 Mar 22 16:43 pipex$
+    12	drwxr-xr-x 8 thi-mngu 2020   188 Mar 22 14:09 pipex-tester$
+    13	drwxr-xr-x 2 thi-mngu 2020   193 Mar 22 16:43 srcs$
