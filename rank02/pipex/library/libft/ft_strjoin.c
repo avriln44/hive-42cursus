@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/13 12:37:08 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/22 13:46:02 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/23 15:15:24 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ char	*ft_strjoin(char *s1, char *s2)
 	ft_memcpy(joined, s1, ft_strlen(s1));
 	ft_memcpy((joined + ft_strlen(s1)), s2, ft_strlen(s2));
 	joined[len] = '\0';
-	// free(s1);
 	return (joined);
 }

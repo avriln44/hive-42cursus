@@ -1,56 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_path.c                                         :+:      :+:    :+:   */
+/*   get_valid_cmd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/15 14:02:15 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/22 17:21:14 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/23 15:21:01 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "pipex.h"
 
-char	*get_path(char **envp)
-{
-	int		i;
-
-	if (!envp || !*envp)
-	{
-		write(2, "Environment PATH missing!\n", 26);
-		exit(1);
-	}
-	i = 0;
-	while (envp[i])
-	{
-		if (ft_strnstr(envp[i], "PATH=", 5))
-			return (ft_strnstr(envp[i], "PATH=", 5) + 5);
-		i++;
-	}
-	return (NULL);
-}
-
-char	**get_cmd_arr(char **envp)
-{
-	char	**cmd_arr;
-	char	*path;
-
-	if (!envp || !*envp)
-	{
-		write(2, "Environment PATH missing!\n", 26);
-		exit(1);
-	}
-	path = get_path(envp);
-	if (!path)
-		return (NULL);
-	cmd_arr = ft_split(path, ':');
-	if (!cmd_arr)
-		return (NULL);
-	return (cmd_arr);
-}
-
-static char **check_cmd(char *cmd)
+static char	**check_cmd(char *cmd)
 {
 	char	**check;
 
@@ -87,7 +49,7 @@ static char	*build_valid_cmd(char *path, char *cmd_part)
 	if (!valid_cmd)
 	{
 		free(temp);
-		return (NULL);
+		exit(127);
 	}
 	if (access(valid_cmd, X_OK) == 0)
 		return (valid_cmd);
@@ -105,7 +67,7 @@ char	*get_valid_cmd(char *cmd, char **envp)
 {
 	int		i;
 	char	**cmd_arr;
-	char 	**check;
+	char	**check;
 	char	*valid_cmd;
 
 	if (!cmd || !envp || !*envp)
