@@ -6,13 +6,13 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/01 12:07:52 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/05 15:39:37 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/23 13:59:00 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-char	***get_arr(int size, char **argv)
+char	***get_arr(int argc, char **argv)
 {
 	int		i;
 	int		j;
@@ -20,13 +20,15 @@ char	***get_arr(int size, char **argv)
 
 	i = 0;
 	j = 1;
-	new_arr = (char ***)malloc((size) * sizeof(char **));
+	if (!argv || !*argv)
+		return (NULL);
+	new_arr = (char ***)malloc((argc) * sizeof(char **));
 	if (!new_arr)
 		return (NULL);
-	while (i <= size - 1 && j < size)
+	while (i < argc - 1)
 	{
 		new_arr[i] = ft_split(argv[j], ' ');
-		if (!new_arr[i])
+		if (!new_arr[i] || !argv[j])
 		{
 			ft_free_process_3d(new_arr, i);
 			return (NULL);
@@ -34,6 +36,6 @@ char	***get_arr(int size, char **argv)
 		i++;
 		j++;
 	}
-	new_arr[size - 1] = NULL;
+	new_arr[i] = NULL;
 	return (new_arr);
 }

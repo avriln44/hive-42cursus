@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/09 15:01:52 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/09 15:04:10 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/23 14:08:12 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ int	*get_num_list(char **argv, int size, int argc)
 	int		*num_list;
 
 	arr = get_arr(argc, argv);
-	if (!arr)
+	if (!arr || !*arr)
 		return (NULL);
 	num_list = numbers_parsing(size, arr);
 	if (!num_list)
