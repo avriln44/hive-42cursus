@@ -1,29 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_free_process_3d.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 15:30:12 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/24 17:13:52 by thi-mngu         ###   ########.fr       */
+/*   Created: 2025/02/23 12:16:24 by thi-mngu          #+#    #+#             */
+/*   Updated: 2025/03/05 15:18:34 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "./library/libft/libft.h"
-# include "./library/ft_printf/ft_printf.h"
+#include "libft.h"
 
-typedef struct s_map
+void	ft_free_process_3d(char ***arr, size_t current)
 {
-	char	**game_map;
-	int		player;
-	int		collect;
-	int		exit;
-	int		space;
-	int		width;
-	int		length;
-}	t_map;
-
-#endif
+	if (!(arr)[current])
+		return ;
+	while (current-- > 0)
+	{
+		ft_free_process_2d(arr[current], current);
+		(arr[current]) = NULL;
+	}
+	free(arr);
+	(arr) = NULL;
+}

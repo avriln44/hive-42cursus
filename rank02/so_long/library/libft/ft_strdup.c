@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 15:30:12 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/24 17:13:52 by thi-mngu         ###   ########.fr       */
+/*   Created: 2024/11/13 12:32:44 by thi-mngu          #+#    #+#             */
+/*   Updated: 2024/11/23 15:28:22 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "./library/libft/libft.h"
-# include "./library/ft_printf/ft_printf.h"
+#include "libft.h"
 
-typedef struct s_map
+char	*ft_strdup(const char *s)
 {
-	char	**game_map;
-	int		player;
-	int		collect;
-	int		exit;
-	int		space;
-	int		width;
-	int		length;
-}	t_map;
+	int		i;
+	char	*src;
+	char	*str_dup;
 
-#endif
+	src = (char *)s;
+	i = 0;
+	while (src[i] != '\0')
+		i++;
+	str_dup = (char *)malloc((i + 1) * sizeof(char));
+	if (str_dup == NULL)
+		return (NULL);
+	i = 0;
+	while (str_dup != NULL && src[i] != '\0')
+	{
+		str_dup[i] = src[i];
+		i++;
+	}
+	str_dup[i] = '\0';
+	return (str_dup);
+}

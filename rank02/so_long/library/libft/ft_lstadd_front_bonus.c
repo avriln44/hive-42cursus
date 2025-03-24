@@ -1,29 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_lstadd_front_bonus.c                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 15:30:12 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/24 17:13:52 by thi-mngu         ###   ########.fr       */
+/*   Created: 2024/11/21 14:25:45 by thi-mngu          #+#    #+#             */
+/*   Updated: 2024/11/23 15:24:27 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "./library/libft/libft.h"
-# include "./library/ft_printf/ft_printf.h"
+#include "libft.h"
 
-typedef struct s_map
+void	ft_lstadd_front(t_list **lst, t_list *new)
 {
-	char	**game_map;
-	int		player;
-	int		collect;
-	int		exit;
-	int		space;
-	int		width;
-	int		length;
-}	t_map;
-
-#endif
+	if (new == NULL)
+		return ;
+	new->next = *lst;
+	*lst = new;
+}

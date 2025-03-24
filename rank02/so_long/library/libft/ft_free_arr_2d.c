@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_free_arr_2d.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 15:30:12 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/24 17:13:52 by thi-mngu         ###   ########.fr       */
+/*   Created: 2025/02/23 12:05:56 by thi-mngu          #+#    #+#             */
+/*   Updated: 2025/03/05 15:29:34 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "./library/libft/libft.h"
-# include "./library/ft_printf/ft_printf.h"
+#include "libft.h"
 
-typedef struct s_map
+void	ft_free_arr_2d(char **arr)
 {
-	char	**game_map;
-	int		player;
-	int		collect;
-	int		exit;
-	int		space;
-	int		width;
-	int		length;
-}	t_map;
+	int	i;
 
-#endif
+	if (!arr)
+		return ;
+	i = 0;
+	while (arr[i])
+	{
+		free(arr[i]);
+		arr[i] = NULL;
+		i++;
+	}
+	free(arr);
+}

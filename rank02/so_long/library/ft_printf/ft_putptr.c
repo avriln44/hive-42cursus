@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_putptr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 15:30:12 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/24 17:13:52 by thi-mngu         ###   ########.fr       */
+/*   Created: 2024/12/11 18:28:18 by thi-mngu          #+#    #+#             */
+/*   Updated: 2025/01/19 19:11:47 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "./library/libft/libft.h"
-# include "./library/ft_printf/ft_printf.h"
+#include "ft_printf.h"
 
-typedef struct s_map
+int	ft_putptr(unsigned long long ptr, char *base)
 {
-	char	**game_map;
-	int		player;
-	int		collect;
-	int		exit;
-	int		space;
-	int		width;
-	int		length;
-}	t_map;
+	int	count;
+	int	ptr_count;
 
-#endif
+	if (ptr == 0)
+		ptr_count = write(1, "(nil)", 5);
+	else
+	{
+		count = write(1, "0x", 2);
+		ptr_count = ft_putnbr_base(ptr, base);
+		ptr_count += count;
+	}
+	if (ptr_count < 2)
+		return (-1);
+	return (ptr_count);
+}

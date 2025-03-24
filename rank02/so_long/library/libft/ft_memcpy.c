@@ -1,29 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   so_long.h                                          :+:      :+:    :+:   */
+/*   ft_memcpy.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/23 15:30:12 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/24 17:13:52 by thi-mngu         ###   ########.fr       */
+/*   Created: 2024/11/13 11:35:46 by thi-mngu          #+#    #+#             */
+/*   Updated: 2024/11/23 15:26:15 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef SO_LONG_H
-# define SO_LONG_H
-# include "./library/libft/libft.h"
-# include "./library/ft_printf/ft_printf.h"
+#include "libft.h"
 
-typedef struct s_map
+void	*ft_memcpy(void *dest, const void *src, size_t n)
 {
-	char	**game_map;
-	int		player;
-	int		collect;
-	int		exit;
-	int		space;
-	int		width;
-	int		length;
-}	t_map;
+	const unsigned char	*str;
+	unsigned char		*result;
+	size_t				i;
 
-#endif
+	if (n == 0 || (dest == NULL && src == NULL))
+		return (dest);
+	str = (const unsigned char *)src;
+	result = (unsigned char *)dest;
+	i = 0;
+	while (i < n)
+	{
+		result[i] = str[i];
+		i++;
+	}
+	return (dest);
+}
