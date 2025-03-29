@@ -6,7 +6,7 @@
 /*   By: thi-mngu <thi-mngu@student.hive.fi>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/22 15:23:59 by thi-mngu          #+#    #+#             */
-/*   Updated: 2025/03/23 14:28:23 by thi-mngu         ###   ########.fr       */
+/*   Updated: 2025/03/29 15:37:38 by thi-mngu         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,6 @@ int	main(int argc, char **argv)
 		return (0);
 	size = arr_length(argc, argv);
 	num_list = get_num_list(argv, size, argc);
-
 	if (!util(argv, size, argc) || size <= 1 || !num_list)
 	{
 		write(2, "Error\n", 6);
